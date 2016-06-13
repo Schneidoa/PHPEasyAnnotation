@@ -21,5 +21,15 @@ class EasyAnnotationClass extends \ReflectionClass
         return new EasyAnnotationProperty($this->getName(), $name);
     }
 
+    public function getProperties($filter = null)
+    {
+        $properties =  parent::getProperties($filter);
+
+        $property   = array();
+        foreach( $properties as $p){
+            $property[] = new EasyAnnotationProperty($this->getName(),$p->getName());
+        }
+    }
+
 
 }
