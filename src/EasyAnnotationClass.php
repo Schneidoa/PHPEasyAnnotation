@@ -29,5 +29,6 @@ class EasyAnnotationClass extends \ReflectionClass
         foreach( $properties as $p){
             $property[] = new EasyAnnotationProperty($this->getName(),$p->getName());
         }
+        return $property;
     }
 }
