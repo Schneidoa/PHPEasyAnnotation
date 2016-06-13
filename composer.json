@@ -1,0 +1,29 @@
+{
+  "name": "schneidoa/php-easy-annotation",
+  "description": "Simple PHP Annotation Library",
+  "keywords": ["annotation"],
+  "homepage": "http://www.github.com/schneidoa/",
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Daniel Schneider",
+      "email": "daniel@schneider.hosting"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.4"
+  },
+  "autoload": {
+    "classmap": [
+      "src/"
+    ]
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    }
+  }
+}
