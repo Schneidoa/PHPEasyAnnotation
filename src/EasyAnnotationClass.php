@@ -31,5 +31,4 @@ class EasyAnnotationClass extends \ReflectionClass
         }
     }
 
-
 }
