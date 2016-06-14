@@ -24,6 +24,7 @@ class EasyAnnotationProperty extends \ReflectionProperty
 
         preg_match_all($re, $comment, $matches);
 
+        /*
         $i = 0;
         foreach($matches as $match){
             if($this->isJson($match[2])){
@@ -31,6 +32,7 @@ class EasyAnnotationProperty extends \ReflectionProperty
                 $i++;
             }
         }
+        */
 
         return $matches;
     }

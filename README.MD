@@ -24,7 +24,7 @@ Installation
 
 #### With composer
 
-1. Add this project and [ZfcBase](https://github.com/ZF-Commons/ZfcBase) in your composer.json:
+1. Add this project in your composer.json:
 
     ```json
     "require": {
@@ -50,15 +50,14 @@ class Example
      * @Json({"data": 1})
      */
     public $userId;
- 
-   
-```php
-
-```php
-<?php
+ }
+///////
 
 use Schneidoa\EasyAnnotation\EasyAnnotationClass;
 use Schneidoa\EasyAnnotation\EasyAnnotationProperty;
+
+
+
 ```php
 
 
