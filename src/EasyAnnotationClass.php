@@ -10,7 +10,7 @@ namespace Schneidoa\EasyAnnotation;
 
 class EasyAnnotationClass extends \ReflectionClass
 {
-    
+
     public function getProperty($name)
     {
         return new EasyAnnotationProperty($this->getName(), $name);
@@ -19,7 +19,7 @@ class EasyAnnotationClass extends \ReflectionClass
     public function getAnnotationProperties($filter = null)
     {
         $properties =  $this->getProperties($filter);
-        var_dump($properties);
+        var_dump($this->getName());
         $property   = array();
         foreach( $properties as $p){
             $property[] = new EasyAnnotationProperty($this->getName(),$p->getName());
