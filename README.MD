@@ -50,17 +50,17 @@ class Example
     public $userId;
     
     /**
-         *
-         * @Column(username)
-         * @NotNull()
-         * @Json({"data": "dummy"})
-         */
-        public $username;
+     *
+     * @Column(username)
+     * @NotNull()
+     * @Json({"data": "dummy"})
+     */
+     public $username;
  }
 ///////
  
-use Schneidoa\EasyAnnotation\EasyAnnotationClass;
-use Schneidoa\EasyAnnotation\EasyAnnotationProperty;
+    use Schneidoa\EasyAnnotation\EasyAnnotationClass;
+    use Schneidoa\EasyAnnotation\EasyAnnotationProperty;
 
 
     $p = new EasyAnnotationClass(get_class($this));
