@@ -33,7 +33,7 @@ class EasyAnnotationProperty extends \ReflectionProperty
             $annotations[]  = array(
                 'annotation'    => $annotation,
                 'name'          => $matches[1][$i],
-                'value'         => ($this->isJson($matches[2][$i]) ? json_decode($matches[2][$i], true) : $matches[2][$i])
+                'value'         => (($this->isJson($matches[2][$i])) ? json_decode($matches[2][$i], true) : $matches[2][$i])
             );
             $i++;
         }
