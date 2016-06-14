@@ -10,12 +10,7 @@ namespace Schneidoa\EasyAnnotation;
 
 class EasyAnnotationClass extends \ReflectionClass
 {
-
-    public function __construct($argument)
-    {
-        parent::__construct($argument);
-    }
-
+    
     public function getProperty($name)
     {
         return new EasyAnnotationProperty($this->getName(), $name);
