@@ -11,19 +11,19 @@ namespace Schneidoa\EasyAnnotation;
 
 class EasyAnnotationProperty extends \ReflectionProperty
 {
+
+    
+    protected $annotations;
+
     public function __construct($class, $name)
     {
         parent::__construct($class, $name);
-    }
-
-    public function getAnnotations(){
 
         $comment = $this->getDocComment();
 
-        $re = "/@([\\\\\\w]+)\\((.*?)\\)(?:\\s|$)/";
+        $re = "/@([\\\\\\w]+)[ ]*\\((.*?)\\)(?:\\s|$)/";
 
         preg_match_all($re, $comment, $matches);
-
 
         $annotations =  array();
 
@@ -36,9 +36,12 @@ class EasyAnnotationProperty extends \ReflectionProperty
             );
             $i++;
         }
-        
 
-        return $annotations;
+        $this->annotations  = $annotations;
+    }
+
+    public function getAnnotations(){
+        return $this->annotations;
     }
 
     private function isJson(...$args) {
