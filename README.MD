@@ -6,7 +6,7 @@ Created by [Daniel Schneider](https://github.com/Schneidoa)
 Introduction
 ------------
 
-PHPEasyAnnotation is a simple Simple PHP Annotation Library.  It is designed to be very
+PHPEasyAnnotation is a simple PHP Annotation Library.  It is designed to be very
 simple and easy to extend.
 
 
