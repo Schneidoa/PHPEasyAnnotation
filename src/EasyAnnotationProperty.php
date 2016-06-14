@@ -18,12 +18,25 @@ class EasyAnnotationProperty extends \ReflectionProperty
 
     public function getAnnotations(){
 
-            $comment = $this->getDocComment();
+        $comment = $this->getDocComment();
 
-            $re = "/@([\\\\\\w]+)\\((.*?)\\)(?:\\s|$)/";
+        $re = "/@([\\\\\\w]+)\\((.*?)\\)(?:\\s|$)/";
 
-            preg_match($re, $comment, $matches);
-            return $matches;
+        preg_match($re, $comment, $matches);
+
+        if($this->isJson($matches[2])){
+            $matches[2] = json_decode($matches[2], true);
         }
+
+        return $matches;
+    }
+
+    private function isJson(...$args) {
+        json_decode(...$args);
+        return (json_last_error()===JSON_ERROR_NONE);
+    }
+
+
+
 
 }
