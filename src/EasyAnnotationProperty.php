@@ -26,8 +26,8 @@ class EasyAnnotationProperty extends \ReflectionProperty
 
         $i = 0;
         foreach($matches as $match){
-            if($this->isJson($matches[2])){
-                $matches[$i][2] = json_decode($matches[$i][2], true);
+            if($this->isJson($match[2])){
+                $matches[$i][2] = json_decode($match[2], true);
                 $i++;
             }
         }
