@@ -22,10 +22,14 @@ class EasyAnnotationProperty extends \ReflectionProperty
 
         $re = "/@([\\\\\\w]+)\\((.*?)\\)(?:\\s|$)/";
 
-        preg_match($re, $comment, $matches);
+        preg_match_all($re, $comment, $matches);
 
-        if($this->isJson($matches[2])){
-            $matches[2] = json_decode($matches[2], true);
+        $i = 0;
+        foreach($matches as $match){
+            if($this->isJson($matches[2])){
+                $matches[$i][2] = json_decode($matches[$i][2], true);
+                $i++;
+            }
         }
 
         return $matches;
