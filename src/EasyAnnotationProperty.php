@@ -24,16 +24,15 @@ class EasyAnnotationProperty extends \ReflectionProperty
 
         preg_match_all($re, $comment, $matches);
 
-        //$first = array_shift( $matches );
 
         $annotations =  array();
 
         $i = 0;
         foreach($matches[0] as $annotation){
             $annotations[]  = array(
-                'annotation'    => $annotation,
-                'name'          => $matches[1][$i],
-                'value'         => (($this->isJson($matches[2][$i])) ? json_decode($matches[2][$i], true) : $matches[2][$i])
+                'annotation'    => trim($annotation),
+                'name'          => trim($matches[1][$i]),
+                'value'         => (($this->isJson($matches[2][$i])) ? json_decode($matches[2][$i], true) : trim($matches[2][$i]))
             );
             $i++;
         }
