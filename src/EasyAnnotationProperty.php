@@ -53,6 +53,15 @@ class EasyAnnotationProperty extends \ReflectionProperty
         return $this->annotations;
     }
 
+    public function getAnnotation($annotation){
+        foreach ($this->annotations as $a){
+            if(strtolower($a['name']) == strtolower($annotation)){
+                return $a;
+            }
+        }
+        return false;
+    }
+
     private function isJson(...$args)  {
         json_decode(...$args);
         return (json_last_error()===JSON_ERROR_NONE);
