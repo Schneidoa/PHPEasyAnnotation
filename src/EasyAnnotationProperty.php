@@ -12,10 +12,10 @@ namespace Schneidoa\EasyAnnotation;
 class EasyAnnotationProperty extends \ReflectionProperty
 {
 
-    
+
     protected $annotations;
 
-    public function __construct($class, $name)
+    public function __construct(String $class, String $name)
     {
         parent::__construct($class, $name);
 
@@ -40,11 +40,20 @@ class EasyAnnotationProperty extends \ReflectionProperty
         $this->annotations  = $annotations;
     }
 
+    public function hasAnnotation(String $annotation){
+        foreach ($this->annotations as $a){
+            if($a['annotation'] == $annotation){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public function getAnnotations(){
         return $this->annotations;
     }
 
-    private function isJson(...$args) {
+    private function isJson(...$args)  {
         json_decode(...$args);
         return (json_last_error()===JSON_ERROR_NONE);
     }

@@ -11,7 +11,7 @@ namespace Schneidoa\EasyAnnotation;
 class EasyAnnotationClass extends \ReflectionClass
 {
 
-    public function getAnnotationProperty($name)
+    public function getAnnotationProperty(String $name)
     {
         return new EasyAnnotationProperty($this->getName(), $name);
     }
@@ -23,7 +23,6 @@ class EasyAnnotationClass extends \ReflectionClass
         foreach( $properties as $p){
             $property[] = new EasyAnnotationProperty($this->getName(),$p->getName());
         }
-
 
         return $property;
     }
