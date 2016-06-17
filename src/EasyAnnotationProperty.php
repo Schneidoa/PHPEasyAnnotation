@@ -42,7 +42,7 @@ class EasyAnnotationProperty extends \ReflectionProperty
 
     public function hasAnnotation(String $annotation){
         foreach ($this->annotations as $a){
-            if($a['annotation'] == $annotation){
+            if(strtolower($a['annotation']) == strtolower($annotation)){
                 return true;
             }
         }
