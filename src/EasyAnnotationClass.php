@@ -10,6 +10,7 @@ namespace Schneidoa\EasyAnnotation;
 
 class EasyAnnotationClass extends \ReflectionClass
 {
+    protected $annotationProperties;
 
     public function getAnnotationProperty($name)
     {
@@ -25,6 +26,27 @@ class EasyAnnotationClass extends \ReflectionClass
         }
 
         return $property;
+    }
+    
+    private function initAnnotationProperties($filter = null){
+        $this->annotationProperties = $this->getAnnotationProperties($filter);
+    }
+        
+    
+    public function getPropertyWithAnnotation($name)
+    {
+        if(!isset($this->annotationProperties)){
+            $this->initAnnotationProperties();
+        }
+
+        $properties =   array();
+        foreach($this->annotationProperties as $property){
+            if($property->hasAnnotation($name)){
+                $properties[] =  $property;
+            }
+        }
+        
+        return $properties;
     }
 
 
