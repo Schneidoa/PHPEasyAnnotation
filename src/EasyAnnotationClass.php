@@ -12,7 +12,7 @@ class EasyAnnotationClass extends \ReflectionClass
 {
     protected $annotationProperties;
 
-    public function getAnnotationProperty($name)
+    public function getAnnotationProperty(String $name)
     {
         return new EasyAnnotationProperty($this->getName(), $name);
     }
