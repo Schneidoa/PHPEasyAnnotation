@@ -29,12 +29,7 @@ Installation
     "require": {
         "schneidoa/php-easy-annotation": "dev-master"
     }
-    "repositories": [
-            {
-                "type": "vcs",
-                "url": "https://github.com/Schneidoa/PHPEasyAnnotation"
-            }
-    ]   
+    
     ```
 
 2. Now tell composer to download PHPEasyAnnotation:
