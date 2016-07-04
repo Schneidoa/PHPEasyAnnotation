@@ -58,7 +58,11 @@ class Example
      */
      public $username;
  }
-///////
+``` 
+
+### Example 1
+
+```php
  
     use Schneidoa\EasyAnnotation\EasyAnnotationClass;
     use Schneidoa\EasyAnnotation\EasyAnnotationProperty;
@@ -67,21 +71,9 @@ class Example
     $p = new EasyAnnotationClass(get_class($this));
     $p = $p->getAnnotationProperty('userId');
     var_dump( $p->getAnnotations());
-    
- //or
+``` 
  
-    $p = new EasyAnnotationClass(get_class($this));
-    $properties = $p->getAnnotationProperties();
-    
-    foreach($properties as $property){
-        var_dump($property->getAnnotations());
-    }
-    
-
-```
-
-
-### Output on PHP
+PHP Output
 
 ```php
 array (size=2)
@@ -99,6 +91,18 @@ array (size=2)
           'data' => int 1
 ```       
 
+### Example 2
+ 
+```php
+    $p = new EasyAnnotationClass(get_class($this));
+    $properties = $p->getAnnotationProperties();
+    
+    foreach($properties as $property){
+        var_dump($property->getAnnotations());
+    }
+``` 
+    
+PHP Output
 
 ```php
 array (size=2)
