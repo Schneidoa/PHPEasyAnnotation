@@ -18,6 +18,9 @@ class EasyAnnotationClass extends \ReflectionClass
      */
     public function getAnnotationProperty($name)
     {
+        if(empty($this->getName())){
+            throw new \Exception("ReflectionClassName is empty!");
+        }
         return new EasyAnnotationProperty($this->getName(), $name);
     }
 
