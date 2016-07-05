@@ -15,6 +15,9 @@ Requirements
 * PHP>=5.6 
 * [Reflection](http://php.net/manual/de/book.reflection.php)
 
+DEV
+
+* phpunit/phpunit: "5.4.*"
 
 Installation
 ------------
