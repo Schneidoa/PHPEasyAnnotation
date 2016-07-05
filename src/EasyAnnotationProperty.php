@@ -13,8 +13,16 @@ class EasyAnnotationProperty extends \ReflectionProperty
 {
 
 
+    /**
+     * @var array
+     */
     protected $annotations;
 
+    /**
+     * EasyAnnotationProperty constructor.
+     * @param String $class
+     * @param String $name
+     */
     public function __construct(String $class, String $name)
     {
         parent::__construct($class, $name);
@@ -40,6 +48,10 @@ class EasyAnnotationProperty extends \ReflectionProperty
         $this->annotations  = $annotations;
     }
 
+    /**
+     * @param String $annotation
+     * @return bool
+     */
     public function hasAnnotation(String $annotation){
         foreach ($this->annotations as $a){
             if(strtolower($a['name']) == strtolower($annotation)){
@@ -49,11 +61,18 @@ class EasyAnnotationProperty extends \ReflectionProperty
         return false;
     }
 
+    /**
+     * @return array
+     */
     public function getAnnotations(){
         return $this->annotations;
     }
 
-    public function getAnnotation($annotation){
+    /**
+     * @param String $annotation
+     * @return bool|mixed
+     */
+    public function getAnnotation(String $annotation){
         foreach ($this->annotations as $a){
             if(strtolower($a['name']) == strtolower($annotation)){
                 return $a;
@@ -62,6 +81,10 @@ class EasyAnnotationProperty extends \ReflectionProperty
         return false;
     }
 
+    /**
+     * @param array ...$args
+     * @return bool
+     */
     private function isJson(...$args)  {
         json_decode(...$args);
         return (json_last_error()===JSON_ERROR_NONE);

@@ -12,11 +12,19 @@ class EasyAnnotationClass extends \ReflectionClass
 {
     protected $annotationProperties;
 
+    /**
+     * @param String $name
+     * @return EasyAnnotationProperty
+     */
     public function getAnnotationProperty($name)
     {
         return new EasyAnnotationProperty($this->getName(), $name);
     }
 
+    /**
+     * @param int|null $filter
+     * @return EasyAnnotationProperty[]
+     */
     public function getAnnotationProperties($filter = null)
     {
         $properties =  ($filter === NULL ? parent::getProperties() : parent::getProperties($filter));
@@ -27,12 +35,19 @@ class EasyAnnotationClass extends \ReflectionClass
 
         return $property;
     }
-    
+
+    /**
+     * @param int|null $filter
+     */
     private function initAnnotationProperties($filter = null){
         $this->annotationProperties = $this->getAnnotationProperties($filter);
     }
-        
-    
+
+
+    /**
+     * @param String $name
+     * @return EasyAnnotationProperty[]
+     */
     public function getPropertyWithAnnotation($name)
     {
         if(!isset($this->annotationProperties)){
