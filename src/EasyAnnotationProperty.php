@@ -29,7 +29,7 @@ class EasyAnnotationProperty extends \ReflectionProperty
 
         $comment = $this->getDocComment();
 
-        $re = "/@([\\\\\\w]+)[ ]*\\((.*?)\\)(?:\\s|$)/";
+        $re = "/@([\\\\\\w]+)[ \\t]*(\\((.*?)\\)(?:\\s|$))?/";
 
         preg_match_all($re, $comment, $matches);
 
@@ -40,7 +40,7 @@ class EasyAnnotationProperty extends \ReflectionProperty
             $annotations[]  = array(
                 'annotation'    => trim($annotation),
                 'name'          => trim($matches[1][$i]),
-                'value'         => (($this->isJson($matches[2][$i])) ? json_decode($matches[2][$i], true) : trim($matches[2][$i]))
+                'value'         => ((isset($matches[2][$i])) ? (($this->isJson($matches[2][$i])) ? json_decode($matches[2][$i], true) : trim($matches[2][$i])) : null )
             );
             $i++;
         }
