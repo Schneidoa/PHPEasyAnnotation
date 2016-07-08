@@ -55,7 +55,7 @@ class EasyAnnotationProperty extends \ReflectionProperty
     private function getAnnotationValue(String $value = null){
         $returnValue =  null;
         if(!($value === null)){
-            $value = trim($value,' \t\n\r\0\x0B)(');
+            $value = trim($value,")( \t\n\r\0\x0B");
             if($this->isJson($value)){
                 $returnValue    = json_decode($value, true);
             }else{
