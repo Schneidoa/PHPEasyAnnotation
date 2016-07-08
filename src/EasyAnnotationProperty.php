@@ -40,12 +40,30 @@ class EasyAnnotationProperty extends \ReflectionProperty
             $annotations[]  = array(
                 'annotation'    => trim($annotation),
                 'name'          => trim($matches[1][$i]),
-                'value'         => ((isset($matches[2][$i])) ? (($this->isJson($matches[2][$i])) ? json_decode($matches[2][$i], true) : trim($matches[2][$i])) : null )
+                'value'         => $this->getAnnotationValue($matches[2][$i])
             );
             $i++;
         }
 
         $this->annotations  = $annotations;
+    }
+
+    /**
+     * @param String $value
+     * @return mixed|null|string
+     */
+    private function getAnnotationValue(String $value = null){
+        $returnValue =  null;
+        if(!($value === null)){
+            $value = trim($value,' \t\n\r\0\x0B()');
+            if($this->isJson($value)){
+                $returnValue    = json_decode($value, true);
+            }else{
+                $returnValue    = trim($value);
+            }
+        }
+
+        return $returnValue;
     }
 
     /**
